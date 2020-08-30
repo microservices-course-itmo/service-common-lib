@@ -1,0 +1,28 @@
+package com.wine.to.up.commonlib.logging;
+
+public enum CommonNotableEvents implements NotableEvent {
+    DEFAULT("Default event"),
+    EXCEPTION("Some exception occurred"),
+
+    W_KAFKA_SEND_MESSAGE_FAILED("Kafka send message failed. Topic: {}"),
+    F_KAFKA_CONSUMER_DIED("Kafka consumer died. Topic: {}"),
+    W_KAFKA_LISTENER_INTERRUPTED("Listener thread has been interrupted! Consuming topic name: {}"),
+    W_EXECUTOR_SHUT_DOWN("Executor has been shut down. Name or id: {}")
+    ;
+
+    private final String template;
+
+    CommonNotableEvents(String template) {
+        this.template = template;
+    }
+
+    @Override
+    public String getTemplate() {
+        return template;
+    }
+
+    @Override
+    public String getName() {
+        return getName();
+    }
+}
