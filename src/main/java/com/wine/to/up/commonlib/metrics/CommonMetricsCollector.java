@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
  * Prometheus' metrics exposed at /metrics-prometheus
  *
  */
-@Component
 public class CommonMetricsCollector {
     private static final String KAFKA_TOPIC_NAME_LABEL = "topic";
     private static final String EVENTS_TYPE_LABEL = "type";
