@@ -11,17 +11,11 @@
 
     <properties>
         <current-version>0.1.0</current-version>
-        <!-- Нужен для scm -->
-        <git.username>andrsuh</git.username>
-        <git.repo>demo-service</git.repo>
-
-
         <lombok.version>1.18.10</lombok.version>
         <kafka-clients.version>2.5.0</kafka-clients.version>
         <micrometer.version>1.5.2</micrometer.version>
         <simpleclient.version>0.8.1</simpleclient.version>
         <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
-
         <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
     </properties>
 
@@ -72,14 +66,6 @@
             <version>${simpleclient.version}</version>
         </dependency>
     </dependencies>
-
-    <!-- Нужен для buildnumber-maven-plugin -->
-    <scm>
-        <connection>scm:git:https://https://github.com/${git.username}/${git.repo}.git</connection>
-        <developerConnection>scm:git:https://https://github.com/${git.username}/${git.repo}.git</developerConnection>
-        <tag>HEAD</tag>
-        <url>https://https://github.com/${git.username}/${git.repo}.git</url>
-    </scm>
 
     <!-- Нужен для пуша jar в репозиторий libs-snapshot-local в jfrog artifactory -->
     <distributionManagement>
