@@ -23,6 +23,6 @@ public enum CommonNotableEvents implements NotableEvent {
 
     @Override
     public String getName() {
-        return getName();
+        return name();
     }
 }
