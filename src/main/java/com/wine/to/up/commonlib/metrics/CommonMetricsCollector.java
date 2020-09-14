@@ -51,12 +51,12 @@ public class CommonMetricsCollector {
 
 
     public void countKafkaMessageSent(String topicName) {
-        Metrics.counter(KAFKA_MESSAGE_PRODUCED, SERVICE_NAME_LABEL, serviceName, KAFKA_TOPIC_NAME_LABEL, topicName).increment();
+        Metrics.counter(KAFKA_MESSAGE_PRODUCED, KAFKA_TOPIC_NAME_LABEL, topicName).increment();
         kafkaMessageProduced.labels(serviceName, topicName).inc();
     }
 
     public void countEvent(NotableEvent event) {
-        Metrics.counter(EVENTS, SERVICE_NAME_LABEL, serviceName, EVENTS_TYPE_LABEL, event.getName()).increment();
+        Metrics.counter(EVENTS, EVENTS_TYPE_LABEL, event.getName()).increment();
         prometheusEventsCounter.labels(serviceName, event.getName()).inc();
     }
 }
