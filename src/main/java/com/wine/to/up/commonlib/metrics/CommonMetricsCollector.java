@@ -3,7 +3,6 @@ package com.wine.to.up.commonlib.metrics;
 import com.wine.to.up.commonlib.logging.NotableEvent;
 import io.micrometer.core.instrument.Metrics;
 import io.prometheus.client.Counter;
-import org.springframework.beans.factory.annotation.Value;
 
 /**
  * This Class expose methods for recording specific metrics
