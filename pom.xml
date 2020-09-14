@@ -13,7 +13,7 @@
         <git.username>microservices-course-itmo</git.username>
         <git.repo>service-common-lib</git.repo>
 
-        <current-version>0.1.0</current-version>
+        <current-version>0.2.0</current-version>
         <lombok.version>1.18.10</lombok.version>
         <kafka-clients.version>2.5.0</kafka-clients.version>
         <micrometer.version>1.5.2</micrometer.version>
