@@ -1,17 +1,14 @@
 package com.wine.to.up.commonlib.metrics;
 
-import com.wine.to.up.commonlib.logging.CommonNotableEvents;
 import com.wine.to.up.commonlib.logging.NotableEvent;
 import io.micrometer.core.instrument.Metrics;
 import io.prometheus.client.Counter;
-import org.springframework.stereotype.Component;
 
 /**
  * This Class exposes methods for recording specific metrics
  * It changes metrics of Micrometer and Prometheus simultaneously
  * Micrometer's metrics exposed at /actuator/prometheus
  * Prometheus' metrics exposed at /metrics-prometheus
- *
  */
 public class CommonMetricsCollector {
     private static final String KAFKA_TOPIC_NAME_LABEL = "topic";

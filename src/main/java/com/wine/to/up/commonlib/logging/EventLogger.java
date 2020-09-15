@@ -34,7 +34,7 @@ public class EventLogger {
     private final CommonMetricsCollector metrics;
 
     public void trace(NotableEvent event, Object... payload) {
-        log.info(event.getTemplate(), payload); // todo sukhoa use Markers and add event name!
+        log.trace(event.getTemplate(), payload); // todo sukhoa use Markers and add event name!
         metrics.countEvent(event);
     }
 
