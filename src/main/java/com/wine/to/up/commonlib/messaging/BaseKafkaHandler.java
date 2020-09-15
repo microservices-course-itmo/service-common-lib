@@ -10,6 +10,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.time.Duration;
 import java.util.Collections;
 import java.util.concurrent.ExecutorService;
@@ -107,7 +108,8 @@ public class BaseKafkaHandler<MessageType> {
         }
     }
 
-    public void close() { // todo sukhoa we should do it before shutting down the app
+    @PreDestroy
+    public void close() {
         executor.shutdown();
         try {
             executor.awaitTermination(10, TimeUnit.SECONDS);
