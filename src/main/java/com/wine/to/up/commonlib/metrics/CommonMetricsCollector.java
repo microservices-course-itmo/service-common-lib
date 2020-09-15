@@ -5,7 +5,7 @@ import io.micrometer.core.instrument.Metrics;
 import io.prometheus.client.Counter;
 
 /**
- * This Class expose methods for recording specific metrics
+ * This Class exposes methods for recording specific metrics
  * It changes metrics of Micrometer and Prometheus simultaneously
  * Micrometer's metrics exposed at /actuator/prometheus
  * Prometheus' metrics exposed at /metrics-prometheus

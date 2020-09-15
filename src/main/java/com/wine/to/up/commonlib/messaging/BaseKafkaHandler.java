@@ -10,6 +10,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.time.Duration;
 import java.util.Collections;
 import java.util.concurrent.ExecutorService;
@@ -82,17 +83,16 @@ public class BaseKafkaHandler<MessageType> {
     }
 
     private void pollingMessages() {
-        try {
-            while (!Thread.interrupted()) {
+        while (!Thread.interrupted()) {
+            try {
                 ConsumerRecords<String, MessageType> consumerRecords = kafkaConsumer.poll(Duration.ofSeconds(5)); // todo sukhoa add parameter poll interval?
                 consumeMessages(consumerRecords);
+            } catch (Exception e) {
+                eventLogger.error(CommonNotableEvents.F_KAFKA_CONSUMER_POLL_FAILED, topicName, e);
             }
-            eventLogger.warn(CommonNotableEvents.W_KAFKA_LISTENER_INTERRUPTED, topicName);
-        } catch (Exception e) {
-            eventLogger.error(CommonNotableEvents.F_KAFKA_CONSUMER_DIED, topicName);
-        } finally {
-            kafkaConsumer.close();
         }
+        eventLogger.warn(CommonNotableEvents.W_KAFKA_LISTENER_INTERRUPTED, topicName);
+        kafkaConsumer.close();
     }
 
     private void consumeMessages(ConsumerRecords<String, MessageType> consumerRecords) {
@@ -107,7 +107,8 @@ public class BaseKafkaHandler<MessageType> {
         }
     }
 
-    public void close() { // todo sukhoa we should do it before shutting down the app
+    @PreDestroy
+    public void close() {
         executor.shutdown();
         try {
             executor.awaitTermination(10, TimeUnit.SECONDS);
