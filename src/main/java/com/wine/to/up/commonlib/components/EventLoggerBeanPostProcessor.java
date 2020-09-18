@@ -18,10 +18,10 @@ import org.springframework.util.ReflectionUtils;
 @Component
 public class EventLoggerBeanPostProcessor implements BeanPostProcessor {
     @Autowired
-    CommonMetricsCollector metrics;
+    private CommonMetricsCollector metrics;
 
     @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         process(bean);
 
         // We must return bean after completion of processing
