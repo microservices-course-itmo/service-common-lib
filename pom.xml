@@ -13,7 +13,7 @@
         <git.username>microservices-course-itmo</git.username>
         <git.repo>service-common-lib</git.repo>
 
-        <current-version>0.2.2</current-version>
+        <current-version>0.2.3</current-version>
         <lombok.version>1.18.10</lombok.version>
         <kafka-clients.version>2.5.0</kafka-clients.version>
         <micrometer.version>1.5.2</micrometer.version>
@@ -69,10 +69,11 @@
             <artifactId>simpleclient_httpserver</artifactId>
             <version>${simpleclient.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-security</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
@@ -83,11 +84,11 @@
             <artifactId>spring-security-core</artifactId>
             <version>5.3.3.RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>5.3.3.RELEASE</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.security</groupId>-->
+<!--            <artifactId>spring-security-web</artifactId>-->
+<!--            <version>5.3.3.RELEASE</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <!-- Нужен для buildnumber-maven-plugin -->
