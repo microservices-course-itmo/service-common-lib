@@ -21,6 +21,7 @@
         <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
         <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
         <jjwt.version>0.9.1</jjwt.version>
+        <spring-security.version>5.3.3.RELEASE</spring-security.version>
     </properties>
 
     <dependencies>
@@ -82,7 +83,7 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>5.3.3.RELEASE</version>
+            <version>${spring-security.version}</version>
         </dependency>
     </dependencies>
 
