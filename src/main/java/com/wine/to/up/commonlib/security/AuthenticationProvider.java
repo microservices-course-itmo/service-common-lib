@@ -10,15 +10,16 @@ import org.springframework.security.core.context.SecurityContextHolder;
  */
 public class AuthenticationProvider {
   /**
-   * Tests if current user is anonimous
-   * @return true if current user is anonimous
+   * Tests if current user is anonymous
+   * @return true if current user is anonymous
    */
   public static boolean isAnonymous() {
     return getUser().getRole().equals(HeadersAuthFilter.ROLE_ANONYMOUS);
   }
 
   /**
-   * Returns User entity of current user, logged in to the service
+   * Returns User entity of current user.
+   * If user is anonymous, a dummy id will be set and role will be "ROLE_ANONYMOUS".
    * @return currently logged in user's entity
    */
   public static User getUser() {
